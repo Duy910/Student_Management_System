@@ -1,8 +1,12 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -10,8 +14,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -77,15 +83,28 @@ public class LoginController implements Initializable {
             ResultSet queryResult = statement.executeQuery(verifyLogin);
             while (queryResult.next()) {
                     if (queryResult.getInt(1) == 1) {
-                        loginMessageLabel.setText("Congratulations!");
+                        createHomeManagementForm();
                     } else {
                         loginMessageLabel.setText("Invalid login. Please try again.");
                 }
             }
-
         } catch (Exception e) {
             e.getStackTrace();
             e.getCause();
         }
+    }
+
+    public void createHomeManagementForm() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+            Stage stageHomeManagement = new Stage();
+            stageHomeManagement.initStyle(StageStyle.UNDECORATED);
+            stageHomeManagement.setScene(new Scene( root,1024, 615));
+            stageHomeManagement.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
