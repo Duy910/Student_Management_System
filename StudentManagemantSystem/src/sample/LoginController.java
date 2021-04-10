@@ -99,7 +99,9 @@ public class LoginController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
             Stage stageHomeManagement = new Stage();
             stageHomeManagement.initStyle(StageStyle.UNDECORATED);
-            stageHomeManagement.setScene(new Scene( root,1024, 615));
+            Scene scene = new Scene(root, 1024, 615);
+            scene.getStylesheets().add("css/style.css");
+            stageHomeManagement.setScene(scene);
             stageHomeManagement.show();
 
         } catch (IOException e) {

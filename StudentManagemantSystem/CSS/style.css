@@ -1,18 +1,49 @@
+.button_login {
+    -fx-background-color: #0c8cc9;
+}
+
 .button_login:hover {
     -fx-background-color: #2aa7eb;
+    -fx-cursor: hand;
+}
+
+.button_cancel {
+    -fx-text-fill: #151414;
 }
 
 .button_cancel:hover {
     -fx-background-color: #6e7d85;
+    -fx-text-fill: #fafafa;
+    -fx-cursor: hand;
 }
 
-.button_home {
+.button1 {
     -fx-background-color:  #55ebf2;
     -fx-border-color: #fffcfc;
     -fx-border-width: 4px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 8px;
 }
 
-.button_home:hover {
+.button1:hover {
     -fx-background-color: #9df5f0;
     -fx-z-index: 2;
+    -fx-cursor: hand;
+}
+
+.btn_home{
+    -fx-padding: 0px 0px 15px 0px;
+}
+
+.btn_back {
+    -fx-border-color: #fafafa;
+    -fx-border-radius: 4px;
+    -fx-border-width: 3px;
+    -fx-cursor: hand;
+    -fx-background-color: #ffffff;
+}
+
+.tf_search {
+    -fx-background-radius: 10px;
+    -fx-text-fill: #474545;
 }

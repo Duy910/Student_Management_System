@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="409.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentController">
+   <children>
+      <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="409.0" prefWidth="788.0">
+         <top>
+            <Pane prefHeight="136.0" prefWidth="788.0" style="-fx-background-color: #25e6f5;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="208.0" layoutY="52.0" text="Students M" textFill="#fcfcfc">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="129.0" fitWidth="101.0" layoutX="107.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/student_primary.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="1.0" contrast="1.0" />
+                     </effect>
+                  </ImageView>
+               </children>
+            </Pane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
