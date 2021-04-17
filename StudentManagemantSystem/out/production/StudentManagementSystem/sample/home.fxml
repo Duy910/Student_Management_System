@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Point3D?>
 <?import javafx.scene.Cursor?>
@@ -54,7 +55,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="homeButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="180.0" prefWidth="279.0" scaleZ="0.0" styleClass="button_home" stylesheets="@../../css/style.css" text="Home" textFill="WHITE">
+            <Button fx:id="homeButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="180.0" prefWidth="279.0" scaleZ="0.0" stylesheets="@../../css/style.css" text="Home" textFill="WHITE">
                <graphic>
                   <ImageView fx:id="homeImageView" fitHeight="81.0" fitWidth="84.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -74,8 +75,12 @@
                <rotationAxis>
                   <Point3D />
                </rotationAxis>
+               <styleClass>
+                  <String fx:value="btn_home" />
+                  <String fx:value="button1" />
+               </styleClass>
             </Button>
-            <Button fx:id="studentButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" styleClass="button_home" stylesheets="@../../css/style.css" text="Student" textFill="WHITE" GridPane.columnIndex="1">
+            <Button fx:id="studentButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#StudentActionForm" prefHeight="167.0" prefWidth="278.0" stylesheets="@../../css/style.css" text="Student" textFill="WHITE" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fx:id="studentImageView" fitHeight="81.0" fitWidth="84.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -89,8 +94,12 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn_home" />
+                  <String fx:value="button1" />
+               </styleClass>
             </Button>
-            <Button fx:id="classesButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" styleClass="button_home" stylesheets="@../../css/style.css" text="Classes" textFill="WHITE" GridPane.columnIndex="2">
+            <Button fx:id="classesButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" stylesheets="@../../css/style.css" text="Classes" textFill="WHITE" GridPane.columnIndex="2">
                <graphic>
                   <ImageView fx:id="classesImageView" fitHeight="81.0" fitWidth="84.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -104,8 +113,12 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn_home" />
+                  <String fx:value="button1" />
+               </styleClass>
             </Button>
-            <Button fx:id="updateButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" styleClass="button_home" stylesheets="@../../css/style.css" text="Update" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="updateButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" stylesheets="@../../css/style.css" text="Update" textFill="WHITE" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fx:id="updateImageView" fitHeight="81.0" fitWidth="84.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -119,8 +132,12 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn_home" />
+                  <String fx:value="button1" />
+               </styleClass>
             </Button>
-            <Button fx:id="settingsButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" styleClass="button_home" stylesheets="@../../css/style.css" text="Settings" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="settingsButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" stylesheets="@../../css/style.css" text="Settings" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fx:id="settingImageView" fitHeight="81.0" fitWidth="84.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -134,8 +151,12 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn_home" />
+                  <String fx:value="button1" />
+               </styleClass>
             </Button>
-            <Button fx:id="closeButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#closeHomeOnAction" prefHeight="167.0" prefWidth="278.0" styleClass="button_home" stylesheets="@../../css/style.css" text="Close" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="closeButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#closeHomeOnAction" prefHeight="167.0" prefWidth="278.0" stylesheets="@../../css/style.css" text="Close" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fx:id="closeImageView" fitHeight="81.0" fitWidth="84.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -149,6 +170,10 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <styleClass>
+                  <String fx:value="btn_home" />
+                  <String fx:value="button1" />
+               </styleClass>
             </Button>
          </children>
          <rotationAxis>

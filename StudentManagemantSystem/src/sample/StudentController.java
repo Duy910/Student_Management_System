@@ -1,4 +1,132 @@
 package sample;
 
-public class StudentController {
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.File;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.logging.Logger;
+
+public class StudentController implements Initializable {
+
+
+    @FXML
+    private ImageView backImageView;
+
+    @FXML
+    private ImageView studentlogoImageView;
+
+    @FXML
+    private Button backButton;
+
+    @FXML
+    private TableView<Student> studentTableView;
+
+    @FXML
+    private TableColumn<Student, String> idTableColumn;
+
+    @FXML
+    private TableColumn<Student, String> lastnameTableColumn;
+
+    @FXML
+    private TableColumn<Student, String> firstnameTableColumn;
+
+    @FXML
+    private TableColumn<Student, String> dobTableColumn;
+
+    @FXML
+    private TableColumn<Student, String> sexTableColumn;
+
+    @FXML
+    private TableColumn<Student, String> emailTableColumn;
+
+    @FXML
+    private TableColumn<Student, String> addressTableColumn;
+
+    @FXML
+    private TableColumn<Student, String> phoneTableColumn;
+
+
+    String query = null;
+    DatabaseConnection databaseConnection = new DatabaseConnection();
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+    Student student = null;
+    ObservableList<Student> StudentList = FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        File fileBack = new File("Images/back_icon.png");
+        Image imageBack = new Image(fileBack.toURI().toString());
+        backImageView.setImage(imageBack);
+
+        File fileStudentLogoImageView = new File("Images/student_primary.png");
+        Image imageStudentLogo = new Image(fileStudentLogoImageView.toURI().toString());
+        studentlogoImageView.setImage(imageStudentLogo);
+
+        loadDate();
+    }
+
+    private void loadDate() {
+        connection = databaseConnection.getConnection();
+
+        refreshTableView();
+
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        lastnameTableColumn.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        firstnameTableColumn.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        dobTableColumn.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        sexTableColumn.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        emailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        addressTableColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
+        phoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+    }
+
+    public void backActionForm(ActionEvent event) {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.toBack();
+    }
+
+    public void refreshTableView() {
+        try {
+
+            StudentList.clear();
+            query = "SELECT * FROM student_db.student;";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                StudentList.add(new Student(
+                        resultSet.getInt("student_id"),
+                        resultSet.getString("lastname"),
+                        resultSet.getString("firstname"),
+                        resultSet.getDate("date_of_birth"),
+                        resultSet.getString("sex"),
+                        resultSet.getString("email"),
+                        resultSet.getString("address"),
+                        resultSet.getInt("phonenumber")
+                ));
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
 }

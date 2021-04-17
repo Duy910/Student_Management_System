@@ -80,7 +80,7 @@
                   <String fx:value="button1" />
                </styleClass>
             </Button>
-            <Button fx:id="studentButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="167.0" prefWidth="278.0" stylesheets="@../../css/style.css" text="Student" textFill="WHITE" GridPane.columnIndex="1">
+            <Button fx:id="studentButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#StudentActionForm" prefHeight="167.0" prefWidth="278.0" stylesheets="@../../css/style.css" text="Student" textFill="WHITE" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fx:id="studentImageView" fitHeight="81.0" fitWidth="84.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
