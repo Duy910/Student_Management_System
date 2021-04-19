@@ -67,7 +67,7 @@
                      <VBox.margin>
                         <Insets top="80.0" />
                      </VBox.margin></Label>
-                  <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="14.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Add" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addStudentForm" prefHeight="14.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Add" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -90,7 +90,7 @@
                         <Insets left="50.0" right="50.0" top="60.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="reloadButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="0.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Reload" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="reloadButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#refreshTableView" prefHeight="0.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Reload" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -109,14 +109,14 @@
                <children>
                   <TableView fx:id="studentTableView" layoutX="4.0" prefHeight="651.0" prefWidth="834.0" stylesheets="@../../css/style.css">
                     <columns>
-                      <TableColumn fx:id="idTableColumn" prefWidth="40.0" text="ID" />
-                      <TableColumn fx:id="lastnameTableColumn" prefWidth="89.0" text="Last Name" />
-                        <TableColumn fx:id="firstnameTableColumn" prefWidth="96.0" text="First Name" />
-                        <TableColumn fx:id="dobTableColumn" prefWidth="62.0" text="D.OB" />
-                        <TableColumn fx:id="sexTableColumn" prefWidth="81.0" text="Sex" />
-                        <TableColumn fx:id="emailTableColumn" prefWidth="123.0" text="Email" />
-                        <TableColumn fx:id="addressTableColumn" prefWidth="186.0" text="Address" />
-                        <TableColumn fx:id="phoneTableColumn" minWidth="1.0" prefWidth="156.0" text="Phone Number" />
+                      <TableColumn fx:id="idTableColumn" prefWidth="40.0" style="-fx-alignment: center;" text="ID" />
+                      <TableColumn fx:id="lastnameTableColumn" prefWidth="118.0" style="-fx-alignment: center;" text="Last Name" />
+                        <TableColumn fx:id="firstnameTableColumn" prefWidth="77.0" style="-fx-alignment: center;" text="First Name" />
+                        <TableColumn fx:id="dobTableColumn" prefWidth="91.0" style="-fx-alignment: center;" text="D.OB" />
+                        <TableColumn fx:id="sexTableColumn" prefWidth="51.0" style="-fx-alignment: center;" text="Sex" />
+                        <TableColumn fx:id="emailTableColumn" prefWidth="172.0" style="-fx-alignment: center;" text="Email" />
+                        <TableColumn fx:id="addressTableColumn" prefWidth="149.0" style="-fx-alignment: center;" text="Address" />
+                        <TableColumn fx:id="phoneTableColumn" minWidth="1.0" prefWidth="135.0" style="-fx-alignment: center;" text="Phone Number" />
                     </columns>
                   </TableView>
                </children>

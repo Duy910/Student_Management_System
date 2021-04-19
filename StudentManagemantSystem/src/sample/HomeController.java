@@ -19,7 +19,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
-
     @FXML
     private ImageView homeImageView;
 
@@ -40,6 +39,9 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button closeButton;
+
+    @FXML
+    private Button studentButton;
 
     @FXML
     private ImageView closeImageView;
@@ -91,7 +93,7 @@ public class HomeController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("studentForm.fxml"));
             Stage stageStudentForm = new Stage();
-            stageStudentForm.initStyle(StageStyle.UTILITY);
+            stageStudentForm.initStyle(StageStyle.UNDECORATED);
             Scene sceneStudent = new Scene(root, 1200, 800);
             sceneStudent.getStylesheets().add("css/style.css");
             stageStudentForm.setScene(sceneStudent);

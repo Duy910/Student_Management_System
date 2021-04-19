@@ -4,7 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,8 +15,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -122,10 +127,25 @@ public class StudentController implements Initializable {
                         resultSet.getString("address"),
                         resultSet.getInt("phonenumber")
                 ));
+                studentTableView.setItems(StudentList);
             }
 
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public void addStudentForm(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("addstudent.fxml"));
+            Stage stageStudent = new Stage();
+            stageStudent.initStyle(StageStyle.UTILITY);
+            Scene sceneStudent = new Scene(root, 608, 700);
+            sceneStudent.getStylesheets().add("css/style.css");
+            stageStudent.setScene(sceneStudent);
+            stageStudent.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

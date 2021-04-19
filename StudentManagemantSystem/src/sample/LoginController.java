@@ -31,6 +31,9 @@ public class LoginController implements Initializable {
     private Button cancelButton;
 
     @FXML
+    private Button loginButton;
+
+    @FXML
     private Label loginMessageLabel;
 
     @FXML
@@ -84,6 +87,8 @@ public class LoginController implements Initializable {
             while (queryResult.next()) {
                     if (queryResult.getInt(1) == 1) {
                         createHomeManagementForm();
+                        Stage stage = (Stage) loginButton.getScene().getWindow();
+                        stage.hide();
                     } else {
                         loginMessageLabel.setText("Invalid login. Please try again.");
                 }
