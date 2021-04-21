@@ -196,15 +196,15 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="388.0" prefHeight="43.0" prefWidth="608.0">
                <children>
-                  <Label text="Teacher ID" textAlignment="CENTER">
+                  <Label text="Class ID" textAlignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="20.0" right="22.0" />
+                        <Insets left="20.0" right="46.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="teacherIdField" prefHeight="25.0" prefWidth="453.0" promptText="Teacher ID">
+                  <TextField fx:id="classIdField" prefHeight="25.0" prefWidth="453.0" promptText="Class ID">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
@@ -219,7 +219,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="96.0" prefWidth="608.0" style="-fx-background-color: #25e6f5;" styleClass="vbox_student">
                <children>
-                  <Button fx:id="addButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" styleClass="button1" text="ADD" textFill="WHITE">
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#saveStudent" prefHeight="60.0" prefWidth="162.0" styleClass="button1" text="ADD" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
@@ -227,7 +227,7 @@
                         <Font size="22.0" />
                      </font>
                   </Button>
-                  <Button fx:id="cleanButton" mnemonicParsing="false" prefHeight="59.0" prefWidth="185.0" styleClass="button1" text="Clean" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="cleanButton" mnemonicParsing="false" onAction="#cleanStudent" prefHeight="59.0" prefWidth="185.0" styleClass="button1" text="Clean" textAlignment="CENTER" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>

@@ -3,12 +3,12 @@ package sample;
 import java.sql.Date;
 
 public class Student {
-    int id, phonenumber;
-    String lastname, firstname, sex, email, address;
+    int id;
+    String lastname, firstname, sex, email, address, phonenumber;
     Date dob;
 
     public Student(int id, String lastname, String firstname, Date dob, String sex,
-                   String email, String address, int phonenumber) {
+                   String email, String address, String phonenumber) {
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -19,11 +19,11 @@ public class Student {
         this.phonenumber = phonenumber;
     }
 
-    public int getPhonenumber() {
+    public String getPhonenumber() {
         return phonenumber;
     }
 
-    public void setPhonenumber(int phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 

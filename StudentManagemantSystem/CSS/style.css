@@ -77,11 +77,13 @@
     -fx-text-fill: #020202;
     -fx-alignment: CENTER;
 }
-.table-row-cell:selected {
-    -fx-background-color: whitesmoke;
-    -fx-text-background-color:  #6622CC;
 
+.table-view .cell:hover {
+    -fx-background-color: yellow;
+}
 
+.table-view .table-row-cell:selected {
+    -fx-background-color: #ff0000;
 }
 
 /* scroll bar starts here */
@@ -109,5 +111,4 @@
     -fx-background-color:derive( #1ee0f1,90%);
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 2em;
-
 }

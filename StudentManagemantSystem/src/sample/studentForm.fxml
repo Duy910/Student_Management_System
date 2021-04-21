@@ -67,14 +67,14 @@
                      <VBox.margin>
                         <Insets top="80.0" />
                      </VBox.margin></Label>
-                  <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addStudentForm" prefHeight="14.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Add" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getStudentForm" prefHeight="14.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Add" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" top="60.0" />
                      </VBox.margin></Button>
-                  <Button fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="30.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Delete" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -82,7 +82,7 @@
                         <Insets left="50.0" right="50.0" top="60.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="editButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="0.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="editButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editStudent" prefHeight="0.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Edit" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -107,7 +107,7 @@
          <center>
             <AnchorPane prefHeight="598.0" prefWidth="548.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="studentTableView" layoutX="4.0" prefHeight="651.0" prefWidth="834.0" stylesheets="@../../css/style.css">
+                  <TableView fx:id="studentTableView" layoutX="4.0" prefHeight="651.0" prefWidth="834.0" style="-fx-cursor: hand;" stylesheets="@../../css/style.css">
                     <columns>
                       <TableColumn fx:id="idTableColumn" prefWidth="40.0" style="-fx-alignment: center;" text="ID" />
                       <TableColumn fx:id="lastnameTableColumn" prefWidth="118.0" style="-fx-alignment: center;" text="Last Name" />

@@ -8,14 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +23,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class StudentController implements Initializable {
@@ -38,6 +39,12 @@ public class StudentController implements Initializable {
 
     @FXML
     private Button backButton;
+
+    @FXML
+    private Button deleteButton;
+
+    @FXML
+    private Button editButton;
 
     @FXML
     private TableView<Student> studentTableView;
@@ -74,6 +81,7 @@ public class StudentController implements Initializable {
     ResultSet resultSet = null;
     Student student = null;
     ObservableList<Student> StudentList = FXCollections.observableArrayList();
+    static int studentId;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -81,10 +89,10 @@ public class StudentController implements Initializable {
         Image imageBack = new Image(fileBack.toURI().toString());
         backImageView.setImage(imageBack);
 
+
         File fileStudentLogoImageView = new File("Images/student_primary.png");
         Image imageStudentLogo = new Image(fileStudentLogoImageView.toURI().toString());
         studentlogoImageView.setImage(imageStudentLogo);
-
         loadDate();
     }
 
@@ -101,6 +109,51 @@ public class StudentController implements Initializable {
         emailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         addressTableColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
         phoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+        studentTableView.setItems(StudentList);
+    }
+
+    public void deleteStudent(ActionEvent event) {
+        try {
+            student = studentTableView.getSelectionModel().getSelectedItem();
+            query = "DELETE FROM student_db.student WHERE student_id = "+ student.getId() + ";";
+            connection = databaseConnection.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+            refreshTableView();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void editStudent(ActionEvent event) {
+        try{
+            student = studentTableView.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("editstudent.fxml"));
+
+            try {
+                loader.load();
+            } catch (Exception exception){
+                exception.getMessage();
+            }
+
+            EditStudentController editStudentController = loader.getController();
+            editStudentController.setTextFieldStudent(student.getLastname(),student.getFirstname(),
+                    student.getDob().toLocalDate(), student.getSex(),
+                    student.getEmail(), student.getAddress(), student.getPhonenumber());
+
+            studentId = student.getId();
+            Parent parent = loader.getRoot();
+            Stage stage = new Stage();
+            Scene sceneEdit = new Scene(parent);
+            sceneEdit.getStylesheets().add("/css/style.css");
+            stage.setScene(sceneEdit);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
     }
 
     public void backActionForm(ActionEvent event) {
@@ -125,7 +178,7 @@ public class StudentController implements Initializable {
                         resultSet.getString("sex"),
                         resultSet.getString("email"),
                         resultSet.getString("address"),
-                        resultSet.getInt("phonenumber")
+                        resultSet.getString("phonenumber")
                 ));
                 studentTableView.setItems(StudentList);
             }
@@ -135,7 +188,12 @@ public class StudentController implements Initializable {
         }
     }
 
-    public void addStudentForm(ActionEvent event) {
+
+    public void getStudentForm(ActionEvent event) {
+        createAddStudent();
+    }
+
+    public void createAddStudent() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("addstudent.fxml"));
             Stage stageStudent = new Stage();
@@ -147,6 +205,5 @@ public class StudentController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
