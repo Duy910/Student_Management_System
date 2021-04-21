@@ -2,6 +2,8 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,6 +47,9 @@ public class StudentController implements Initializable {
 
     @FXML
     private Button editButton;
+
+    @FXML
+    private TextField searchStudentButton;
 
     @FXML
     private TableView<Student> studentTableView;
@@ -154,6 +159,44 @@ public class StudentController implements Initializable {
             exception.printStackTrace();
         }
 
+    }
+
+    public void searchStudent() {
+        connection = databaseConnection.getConnection();
+
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        lastnameTableColumn.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        firstnameTableColumn.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        dobTableColumn.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        sexTableColumn.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        emailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        addressTableColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
+        phoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+        studentTableView.setItems(StudentList);
+
+        FilteredList<Student> filteredStudent = new FilteredList<>(StudentList, b -> true);
+        searchStudentButton.textProperty().addListener(((observableValue, oldStudent, newStudent) -> {
+            filteredStudent.setPredicate(person -> {
+                if (oldStudent == null || newStudent.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newStudent.toLowerCase();
+                if (person.getLastname().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches lastname
+                } else if (person.getFirstname().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Fileter matches firstname
+                } else if (person.getAddress().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else if (person.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else {
+                    return false; // Does not match.
+                }
+            });
+        }));
+        SortedList<Student> sortedStudent = new SortedList<>(filteredStudent);
+        sortedStudent.comparatorProperty().bind(studentTableView.comparatorProperty());
+        studentTableView.setItems(sortedStudent);
     }
 
     public void backActionForm(ActionEvent event) {

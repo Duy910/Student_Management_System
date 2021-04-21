@@ -44,7 +44,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <TextField alignment="CENTER" layoutX="980.0" layoutY="25.0" promptText="Tìm kiếm ..." styleClass="tf_search" stylesheets="@../../css/style.css">
+                  <TextField fx:id="searchStudentButton" alignment="CENTER" layoutX="980.0" layoutY="25.0" onAction="#searchStudent" promptText="Tìm kiếm ..." styleClass="tf_search" stylesheets="@../../css/style.css">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
