@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClassroomController">
+    <children>
+        <BorderPane layoutY="-3.0" prefHeight="800.0" prefWidth="1106.0" stylesheets="@../../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="136.0" prefWidth="788.0" style="-fx-background-color: #25e6f5;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label layoutX="270.0" layoutY="52.0" text="Classroom Management" textFill="#fcfcfc">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="classroomlogoImageView" fitHeight="129.0" fitWidth="101.0" layoutX="155.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Images/classes.png" />
+                            </image>
+                            <effect>
+                                <ColorAdjust brightness="1.0" contrast="1.0" hue="1.0" saturation="1.0" />
+                            </effect>
+                        </ImageView>
+                        <Button fx:id="backButton" layoutX="21.0" layoutY="18.0" mnemonicParsing="false" onAction="#backHomeForm" prefHeight="43.0" prefWidth="68.0" styleClass="btn_back" stylesheets="@../../css/style.css">
+                            <graphic>
+                                <ImageView fx:id="backImageView" fitHeight="30.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../Images/back_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                  <HBox alignment="CENTER" layoutX="692.0" layoutY="19.0" prefHeight="100.0" prefWidth="510.0">
+                     <children>
+                        <Label prefHeight="63.0" prefWidth="176.0" text="Choose classroom:" textFill="WHITE" HBox.hgrow="NEVER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font></Label>
+                        <ComboBox fx:id="courseNameCombobox" prefHeight="34.0" prefWidth="170.0" promptText="Choose classroom">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></ComboBox>
+                        <Button fx:id="generateButton" mnemonicParsing="false" onAction="#loadClassroom" styleClass="button1" text="Generate" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Button>
+                     </children>
+                  </HBox>
+                    </children>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" />
+                    </BorderPane.margin>
+                </Pane>
+            </top>
+            <right>
+                <VBox focusTraversable="true" prefHeight="654.0" prefWidth="333.0" styleClass="vbox_student" stylesheets="@../../css/style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="32.0" prefWidth="417.0" styleClass="vbox_student" text="Administration Tool" textFill="#616161">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="80.0" />
+                            </VBox.margin></Label>
+                        <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="14.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Add" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="50.0" right="50.0" top="60.0" />
+                            </VBox.margin></Button>
+                        <Button fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Delete" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="50.0" right="50.0" top="60.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="editButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="0.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="50.0" right="50.0" top="60.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="reloadButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="0.0" prefWidth="233.0" styleClass="button1" stylesheets="@../../css/style.css" text="Reload" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="50.0" right="50.0" top="60.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                    </BorderPane.margin>
+                </VBox>
+            </right>
+            <center>
+                <AnchorPane prefHeight="598.0" prefWidth="548.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TableView fx:id="classroomTableView" layoutX="4.0" prefHeight="651.0" prefWidth="834.0" style="-fx-cursor: hand;" stylesheets="@../../css/style.css">
+                            <columns>
+                                <TableColumn fx:id="idTableColumn" prefWidth="99.0" style="-fx-alignment: center;" text="ID" />
+                                <TableColumn fx:id="lastnameTableColumn" prefWidth="98.0" style="-fx-alignment: center;" text="Last Name" />
+                                <TableColumn fx:id="firstnameTableColumn" prefWidth="73.0" style="-fx-alignment: center;" text="First Name" />
+                                <TableColumn fx:id="dobTableColumn" prefWidth="100.0" style="-fx-alignment: center;" text="D.OB" />
+                                <TableColumn fx:id="sexTableColumn" prefWidth="55.0" style="-fx-alignment: center;" text="Sex" />
+                                <TableColumn fx:id="courseTableColumn" prefWidth="165.0" style="-fx-alignment: center;" text="Course" />
+                                <TableColumn fx:id="examTypeTableColumn" prefWidth="106.0" style="-fx-alignment: center;" text="Exam Type" />
+                                <TableColumn fx:id="scoreTableColumn" minWidth="1.0" prefWidth="45.0" style="-fx-alignment: center;" text="Score" />
+                        <TableColumn fx:id="teacherTableColumn" minWidth="1.0" prefWidth="92.0" style="-fx-alignment: center;" text="Teacher" />
+                            </columns>
+                        </TableView>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                    </BorderPane.margin>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

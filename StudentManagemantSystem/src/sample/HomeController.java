@@ -102,6 +102,25 @@ public class HomeController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public void ClassroomOnAction(ActionEvent event) {
+        creatClassroomForm();
+    }
+
+    public void creatClassroomForm() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("classroom.fxml"));
+            Stage stageClassroom = new Stage();
+            stageClassroom.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root, 1200, 800);
+            scene.getStylesheets().add("css/style.css");
+            stageClassroom.setScene(scene);
+            stageClassroom.show();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            ex.getMessage();
+        }
     }
 }

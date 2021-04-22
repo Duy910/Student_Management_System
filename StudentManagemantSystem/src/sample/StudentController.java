@@ -40,7 +40,7 @@ public class StudentController implements Initializable {
     private ImageView studentlogoImageView;
 
     @FXML
-    private Button backButton;
+    public Button backButton;
 
     @FXML
     private Button deleteButton;
@@ -126,6 +126,7 @@ public class StudentController implements Initializable {
             preparedStatement.execute();
             refreshTableView();
 
+            preparedStatement.close();
         } catch (SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -225,6 +226,8 @@ public class StudentController implements Initializable {
                 ));
                 studentTableView.setItems(StudentList);
             }
+            preparedStatement.close();
+            resultSet.close();
 
         } catch (Exception ex) {
             ex.printStackTrace();

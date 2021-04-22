@@ -3,10 +3,20 @@ package sample;
 import java.sql.Date;
 
 public class Student {
-    int id;
-    String lastname, firstname, sex, email, address, phonenumber;
-    Date dob;
+    int id, score;
+    String idclass;
 
+    String lastname;
+
+    String firstname;
+    String sex;
+    String email;
+    String address;
+    String phonenumber;
+    String course;
+    String exam_type;
+    String teacher;
+    Date dob;
     public Student(int id, String lastname, String firstname, Date dob, String sex,
                    String email, String address, String phonenumber) {
         this.id = id;
@@ -17,6 +27,58 @@ public class Student {
         this.email = email;
         this.address = address;
         this.phonenumber = phonenumber;
+    }
+
+    public Student(String idclass, String lastname, String firstname, Date dob, String sex, String course, String exam_type, int score, String teacher) {
+        this.idclass = idclass;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.dob = dob;
+        this.sex = sex;
+        this.course = course;
+        this.exam_type = exam_type;
+        this.score = score;
+        this.teacher = teacher;
+    }
+
+    public String getIdclass() {
+        return idclass;
+    }
+
+    public void setIdclass(String idclass) {
+        this.idclass = idclass;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public String getExam_type() {
+        return exam_type;
+    }
+
+    public void setExam_type(String exam_type) {
+        this.exam_type = exam_type;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public String getPhonenumber() {
